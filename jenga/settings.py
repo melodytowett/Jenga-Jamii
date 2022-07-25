@@ -31,12 +31,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jamii',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    # 'django.contrib.gis',
+    # 'mapwidgets',
 ]
 
 MIDDLEWARE = [
@@ -62,6 +66,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 'django.contrib.gis.db.backends.postgis',
+                'location_field.apps.DefaultConfig',
             ],
         },
     },
@@ -75,11 +81,21 @@ WSGI_APPLICATION = 'jenga.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME':'Jenga',
+        'USER':'postgres',
+        'PASSWORD':'Melo',
+        'HOST':'127.0.0.1',
+        'PORT':'5432',
     }
 }
 
+LOCATION_FIELD = {
+    'provider.google.api': '//maps.google.com/maps/api/js?sensor=false',
+    'provider.google.api_key': 'AIzaSyAYa1wWIGN8ScskknUvn-dRJLe7EW_RnUw',
+    'provider.google.api_libraries': 'AIzaSyAYa1wWIGN8ScskknUvn-dRJLe7EW_RnUw',
+    'provider.google.map.type': 'ROADMAP',
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -105,11 +121,16 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
 USE_TZ = True
+# GOOGLE_MAP_API_KEY = "AIzaSyAYa1wWIGN8ScskknUvn-dRJLe7EW_RnUw"
+
+# MAP_WIDGETS = {
+#     "GOOGLE_MAP_API_KEY": "AIzaSyAYa1wWIGN8ScskknUvn-dRJLe7EW_RnUw"
+# }
 
 
 # Static files (CSS, JavaScript, Images)
