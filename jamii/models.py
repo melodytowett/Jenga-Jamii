@@ -15,8 +15,8 @@ class Contact(models.Model):
 
 class Blood(models.Model):
   location = PlainLocationField(based_fields = ['city'],zoom=7)
-  Hospital = models.CharField(max_length=100)
-  Blood_Type = models.CharField(max_length = 3)
+  hospital = models.CharField(max_length=100)
+  blood_Type = models.CharField(max_length = 3)
   date_time = models.DateTimeField()
 
   

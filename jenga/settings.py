@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'jamii',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,8 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    # 'django.contrib.gis',
-    # 'mapwidgets',
+    'jamii.apps.JamiiConfig',
 ]
 
 MIDDLEWARE = [
@@ -131,7 +129,7 @@ USE_TZ = True
 # MAP_WIDGETS = {
 #     "GOOGLE_MAP_API_KEY": "AIzaSyAYa1wWIGN8ScskknUvn-dRJLe7EW_RnUw"
 # }
-
+SITE_ID = 1
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
