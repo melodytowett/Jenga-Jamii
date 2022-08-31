@@ -4,7 +4,6 @@ from django.conf.urls import include
 from . import views
 app_name = 'jamii'
 urlpatterns =[
-
-  path('api/volunteer/',views.Volunteer.as_view()),
-  path('api-auth/',include('rest_framework.urls'))
+  path('volunteer/',views.volunteer_list),
+  path('volunteer/<int:pk>',views.volunteer_detail)
 ]
