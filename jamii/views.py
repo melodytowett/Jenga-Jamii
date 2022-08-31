@@ -14,7 +14,7 @@ def volunteer_list(request,format=None):
       serializers = VolunteerSerializer(data=request.data)
       if serializers.is_valid():
         serializers.save()
-        return Response(serializers.data, status = status.HTTp_201_CREATED)
+        return Response(serializers.data, status = status.HTTP_201_CREATED)
       return Response(serializers.errors,status=status.HTTP_400_BAD_REQUEST)
 @api_view(['PUT','DELETE','GET'])
 def volunteer_detail(request,pk,format=None):
@@ -43,7 +43,7 @@ def contact_list(request,format=None):
       serializers = ContactSerializer(data=request.data)
       if serializers.is_valid():
         serializers.save()
-        return Response(serializers.data, status = status.HTTp_201_CREATED)
+        return Response(serializers.data, status = status.HTTP_201_CREATED)
       return Response(serializers.errors,status=status.HTTP_400_BAD_REQUEST)
 @api_view(['PUT','DELETE','GET'])
 def contact_detail(request,pk,format=None):
@@ -61,4 +61,33 @@ def contact_detail(request,pk,format=None):
       serializers.save()
       return Response(serializers.data)
     return Response(serializers.errors,status=status.HTTP_400_BAD_REQUEST)
+@api_view(['GET','POST'])
+def blood_list(request,format=None):
+    if request.method == 'GET':
+      bloods = Blood.objects.all()
+      serializers= BloodSerializer(bloods,many=True)
+      return Response(serializers.data)
+    elif request.method == 'POST':
+      serializers = BloodSerializer(data=request.data)
+      if serializers.is_valid():
+        serializers.save()
+        return Response(serializers.data, status = status.HTTP_201_CREATED)
+      return Response(serializers.errors,status=status.HTTP_400_BAD_REQUEST)
+@api_view(['PUT','DELETE','GET'])
+def blood_detail(request,pk,format=None):
+  try:
+    blood = Blood.objects.get(pk=pk)
+  except Blood.DoesNotExist:
+    return Response(status=start.HTTP_404_NOT_FOUND)
+
+  if request.method == 'GET':
+    serializers = BloodSerializer(Contact)
+    return Response(serializers.data)
+  elif request.method == 'PUT':
+    serializers = BloodSerializer(blood, data=request.data)
+    if serializers.is_valid():
+      serializers.save()
+      return Response(serializers.data)
+    return Response(serializers.errors,status=status.HTTP_400_BAD_REQUEST)
+
 
