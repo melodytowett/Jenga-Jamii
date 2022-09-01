@@ -1,6 +1,20 @@
 from django.db import models
 from location_field.models.plain import PlainLocationField
 # Create your models here.
+
+class DonateTo(models.Model):
+  schools = models.CharField(max_length=200)
+  orphanages= models.CharField(max_length=200)
+  society = models.CharField(max_length=200)
+  hospitals = models.CharField(max_length=200)
+  prison = models.CharField(max_length=200)
+  refugees = models.CharField(max_length=200)
+
+class Donations(models.Model):
+  donate_to = models.ForeignKey(DonateTo,on_delete=models.CASCADE)
+  donation_type = models.CharField(max_length=200)
+  upload_image = models.ImageField(upload_to = 'image/',blank = True)
+
 class Volunteer(models.Model):
   full_names = models.CharField(max_length=200)
   email = models.EmailField(max_length=200)
