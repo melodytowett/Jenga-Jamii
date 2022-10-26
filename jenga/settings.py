@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -69,17 +70,21 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'jenga.wsgi.application'
-
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Jenga',
-        'USER':'postgres',
-        'PASSWORD':'Melo',
+        'ENGINE':'django.db.backends.postgresql_psycopg2',
+        'NAME': 'jamii',
+        'USER':'lucia',
+        'PASSWORD':'melo',
         'HOST':'127.0.0.1',
         'PORT':'5432',
     }
