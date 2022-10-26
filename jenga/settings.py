@@ -38,7 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+<<<<<<< HEAD
     'rest_framework.authtoken',
+=======
+    'jamii',
+    'knox'
+>>>>>>> 33a4a3f44b26eefa1ff79df43d4eb42116f67ffd
 ]
 
 MIDDLEWARE = [
@@ -49,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'jenga.urls'
@@ -64,16 +70,27 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'location_field.apps.DefaultConfig',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'jenga.wsgi.application'
+<<<<<<< HEAD
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     )
+=======
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # 'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+        'knox.auth.TokenAuthentication',
+    ]
+>>>>>>> 33a4a3f44b26eefa1ff79df43d4eb42116f67ffd
 }
 
 # Database
@@ -81,15 +98,28 @@ REST_FRAMEWORK = {
 
 DATABASES = {
     'default': {
+<<<<<<< HEAD
         'ENGINE':'django.db.backends.postgresql_psycopg2',
         'NAME': 'jamii',
         'USER':'lucia',
         'PASSWORD':'melo',
+=======
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME':'Jenga',
+        'USER':'postgres',
+        'PASSWORD':'Melo',
+>>>>>>> 33a4a3f44b26eefa1ff79df43d4eb42116f67ffd
         'HOST':'127.0.0.1',
         'PORT':'5432',
     }
 }
 
+LOCATION_FIELD = {
+    'provider.google.api': '//maps.google.com/maps/api/js?sensor=false',
+    'provider.google.api_key': 'AIzaSyAYa1wWIGN8ScskknUvn-dRJLe7EW_RnUw',
+    'provider.google.api_libraries': 'AIzaSyAYa1wWIGN8ScskknUvn-dRJLe7EW_RnUw',
+    'provider.google.map.type': 'ROADMAP',
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -120,7 +150,12 @@ TIME_ZONE = 'Africa/Nairobi'
 USE_I18N = True
 
 USE_TZ = True
+# GOOGLE_MAP_API_KEY = "AIzaSyAYa1wWIGN8ScskknUvn-dRJLe7EW_RnUw"
 
+# MAP_WIDGETS = {
+#     "GOOGLE_MAP_API_KEY": "AIzaSyAYa1wWIGN8ScskknUvn-dRJLe7EW_RnUw"
+# }
+SITE_ID = 1
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
