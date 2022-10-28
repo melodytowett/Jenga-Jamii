@@ -38,12 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-<<<<<<< HEAD
-    'rest_framework.authtoken',
-=======
     'jamii',
     'knox'
->>>>>>> 33a4a3f44b26eefa1ff79df43d4eb42116f67ffd
 ]
 
 MIDDLEWARE = [
@@ -77,12 +73,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'jenga.wsgi.application'
-<<<<<<< HEAD
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-    )
-=======
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -90,7 +80,6 @@ REST_FRAMEWORK = {
         # 'rest_framework.authentication.SessionAuthentication',
         'knox.auth.TokenAuthentication',
     ]
->>>>>>> 33a4a3f44b26eefa1ff79df43d4eb42116f67ffd
 }
 
 # Database
@@ -98,19 +87,12 @@ REST_FRAMEWORK = {
 
 DATABASES = {
     'default': {
-<<<<<<< HEAD
-        'ENGINE':'django.db.backends.postgresql_psycopg2',
-        'NAME': 'jamii',
-        'USER':'lucia',
-        'PASSWORD':'melo',
-=======
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME':'Jenga',
         'USER':'postgres',
-        'PASSWORD':'Melo',
->>>>>>> 33a4a3f44b26eefa1ff79df43d4eb42116f67ffd
+        'PASSWORD':'sievalu',
         'HOST':'127.0.0.1',
-        'PORT':'5432',
+        'PORT':'5438',
     }
 }
 
